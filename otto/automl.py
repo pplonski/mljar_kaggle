@@ -7,7 +7,7 @@ sub = pd.read_csv("sampleSubmission.csv")
 x_cols = train.columns[1:-1]
 print(x_cols)
 
-automl = AutoML(mode="Compete", total_time_limit=2) #4*3600)
+automl = AutoML(mode="Compete", total_time_limit=4*3600)
 automl.fit(train[x_cols], train["target"])
 
 sub[sub.columns[1:]] = automl.predict_proba(test)
