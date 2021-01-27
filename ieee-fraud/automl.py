@@ -22,7 +22,7 @@ for i in range(1,39):
 
 x_cols = train.columns[2:]
 
-automl = AutoML(algorithms=["LightGBM"], mode="Compete", eval_metric="auc", total_time_limit=4*3600)
+automl = AutoML(mode="Compete", eval_metric="auc", total_time_limit=4*3600)
 automl.fit(train[x_cols], train["isFraud"])
 
 sub = pd.read_csv("sample_submission.csv")
